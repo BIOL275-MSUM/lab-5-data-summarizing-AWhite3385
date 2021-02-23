@@ -5,6 +5,9 @@ date: "2021-02-23"
 output: github_document
 ---
 
+objectives: The purpose of this lab was to explore the summarize function along with making data sets and graphs with multiple numerical and categorical variables.
+
+
 ```{r}
 #load packages
 library(tidyverse)    
@@ -19,13 +22,13 @@ Rename each variable so that it is all lower-case and uses an underscore _ inste
 ```{r}
 # Question 1
 
-iris
-
 i2 <-rename(iris, sepal_length = Sepal.Length,
        sepal_width = Sepal.Width,
        petal_length = Petal.Length,
        petal_width = Petal.Width,
        species = Species)
+
+i2
 ```
 
 Convert the four numerical variables from cm to mm by multiplying by 10. Print the resulting table.
@@ -37,6 +40,7 @@ ni2 <-mutate(i2, sepal_length = sepal_length * 10,
        petal_length = petal_length * 10,
        petal_width = petal_width * 10)
 
+ni2
 ```
 
 Calculate sepal area and petal area (area is equal to length multiplied by width). Print a table with only the variables sepal area, petal area, and species.
@@ -51,13 +55,13 @@ select(ia1, petal_area, sepal_area)
 
 Calculate the following statistics for the entire dataset from the sepal length variable and print the resulting table:
 
-sample size
-maximum value
-minimum value
-range
-median
-first quartile (q1)
-third quartile (q2)
+sample size,
+maximum value,
+minimum value,
+range,
+median,
+first quartile (q1),
+third quartile (q2),
 inter-quartile range (iqr)
 ```{r}
 #question 4
@@ -76,11 +80,11 @@ ques4
 
 Calculate the following statistics for each species from the petal width variable and print the resulting table:
 
-sample size
-mean
-standard deviation
-variance
-standard error of the mean
+sample size,
+mean,
+standard deviation,
+variance,
+standard error of the mean,
 approximate 95% confidence interval
 ```{r}
 #question 5
@@ -141,4 +145,7 @@ Visualize the relationship between petal length, petal width, and species using 
 
 ggplot(data = ni2) +
         geom_point(mapping = aes(x = petal_length, y = petal_width, color = species), alpha = 0.5)
+```
+```{r session-info}
+sessioninfo::session_info()
 ```
